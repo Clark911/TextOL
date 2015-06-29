@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/TextOL/jQueryUI/jquery-ui.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/TextOL/css/index.css">
 <script src="<%=request.getContextPath() %>/TextOL/jQueryUI/external/jquery/jquery.js"></script>
 <script src="<%=request.getContextPath() %>/TextOL/jQueryUI/jquery-ui.min.js"></script>
 <title>首页</title>
