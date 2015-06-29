@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+	 -->
+
+    <package name="default" namespace="/" extends="struts-default">
+		<!--
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">HelloWorld</param>
+                <param name="namespace">/example</param>
+            </result>
+        </action>  
+        -->
+        <action name="loginAction!*" class="com.clark.action.LoginAction" method="{1}">
+			<result name="success">/TextOL/Index.jsp</result>
+			<result name="login">/TextOL/Login.jsp</result>
+			<result name="ADMIN">/TextOL/Index.jsp</result>
+		</action>
+		<action name="UserAction!*" class="com.clark.action.UserAction" method="{1}">
+			<result name="SUCCESS">/TextOL/user/UserIndex.jsp</result>
+			<result name="FAIL">/TextOL/user/UserIndex.jsp</result>
+		</action>
+    </package>
+
+    <!--<include file="example.xml"/>  -->
+
+    <!-- Add packages here -->
+    <package name="json" namespace="/json" extends="json-default">
+		<action name="JsonUserAction" class="com.clark.action.UserAction" method="queryUsers">
+			<result name="LIST" type="json"></result>
+		</action>
+		<action name="addUserAction" class="com.clark.action.UserAction" method="addUser">
+			<result name="SUCCESS" type="json">
+			<param name="includeProperties">resultMsg</param>
+			</result>
+			<result name="FAIL" type="json"></result>
+		</action>
+		<action name="deleteUserAction" class="com.clark.action.UserAction" method="deleteUser">
+			<result name="SUCCESS" type="json">
+			<param name="includeProperties">resultMsg</param>
+			</result>
+		</action>
+	</package>
+	
+
+</struts>
