@@ -12,6 +12,7 @@ public class UserDAO {
 	private Session session = com.clark.util.HibernateUtil.getSessionFactory().getCurrentSession();
 	public UserDAO() {
 		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public void insertUser(User user){
